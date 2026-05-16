@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gcm_defaultSenderId" translatable="false">188591745177</string>
+    <string name="google_api_key" translatable="false">AIzaSyCjBhvEd3RKqI1ug42eckfTkMQJvX_WZe0</string>
+    <string name="google_app_id" translatable="false">1:188591745177:android:5b2f69c966b3b1db97f008</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCjBhvEd3RKqI1ug42eckfTkMQJvX_WZe0</string>
+    <string name="google_storage_bucket" translatable="false">grameen-light-78f7d.firebasestorage.app</string>
+    <string name="project_id" translatable="false">grameen-light-78f7d</string>
+</resources>

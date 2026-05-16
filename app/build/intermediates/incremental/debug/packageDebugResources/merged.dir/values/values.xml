@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background">#FDF8FD</color>
+    <color name="error">#BA1A1A</color>
+    <color name="error_container">#FFDAD6</color>
+    <color name="ic_launcher_background">#0D631B</color>
+    <color name="on_error">#FFFFFF</color>
+    <color name="on_error_container">#93000A</color>
+    <color name="on_primary">#FFFFFF</color>
+    <color name="on_primary_container">#CBFFC2</color>
+    <color name="on_secondary">#FFFFFF</color>
+    <color name="on_secondary_container">#6F5100</color>
+    <color name="on_surface">#1C1B1F</color>
+    <color name="on_surface_variant">#40493D</color>
+    <color name="on_tertiary">#FFFFFF</color>
+    <color name="on_tertiary_container">#E6F3FF</color>
+    <color name="outline">#707A6C</color>
+    <color name="outline_variant">#BFCABA</color>
+    <color name="primary">#0D631B</color>
+    <color name="primary_container">#2E7D32</color>
+    <color name="secondary">#795900</color>
+    <color name="secondary_container">#FEC330</color>
+    <color name="status_assigned">#2196F3</color>
+    <color name="status_daytime">#FFC107</color>
+    <color name="status_fixed">#4CAF50</color>
+    <color name="status_fused">#F44336</color>
+    <color name="status_pending">#FF9800</color>
+    <color name="status_working">#4CAF50</color>
+    <color name="surface">#FDF8FD</color>
+    <color name="surface_bright">#FDF8FD</color>
+    <color name="surface_container">#F1ECF2</color>
+    <color name="surface_container_high">#EBE7EC</color>
+    <color name="surface_container_highest">#E5E1E7</color>
+    <color name="surface_container_low">#F7F2F8</color>
+    <color name="surface_dim">#DDD9DE</color>
+    <color name="tertiary">#005C81</color>
+    <color name="tertiary_container">#23759F</color>
+    <string name="admin_dashboard">Admin Dashboard</string>
+    <string name="admin_id">Admin ID</string>
+    <string name="admin_login">Admin Login</string>
+    <string name="analytics">Analytics</string>
+    <string name="app_name">Grameen-Light</string>
+    <string name="assign_repair">Assign Repair</string>
+    <string name="assigned">Assigned</string>
+    <string name="complaint_id">Complaint ID</string>
+    <string name="complaint_management">Complaint Management</string>
+    <string name="complaints">Complaints</string>
+    <string name="continue_text">Continue</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="date">Date</string>
+    <string name="daytime_on">Daytime ON</string>
+    <string name="energy_saved">Energy Saved</string>
+    <string name="enter_mobile">Enter 10 digit number</string>
+    <string name="fixed">Fixed</string>
+    <string name="fixed_lights">Fixed Lights</string>
+    <string name="footer_text">Village Infrastructure Stewardship</string>
+    <string name="fused">Fused</string>
+    <string name="gcm_defaultSenderId" translatable="false">188591745177</string>
+    <string name="google_api_key" translatable="false">AIzaSyCjBhvEd3RKqI1ug42eckfTkMQJvX_WZe0</string>
+    <string name="google_app_id" translatable="false">1:188591745177:android:5b2f69c966b3b1db97f008</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCjBhvEd3RKqI1ug42eckfTkMQJvX_WZe0</string>
+    <string name="google_storage_bucket" translatable="false">grameen-light-78f7d.firebasestorage.app</string>
+    <string name="home">Home</string>
+    <string name="issue_daytime">Burning in Daytime</string>
+    <string name="issue_fused">Fused</string>
+    <string name="issue_not_working">Not Working</string>
+    <string name="issue_type">Issue Type</string>
+    <string name="login_subtitle">Access your digital village services and streetlight controls</string>
+    <string name="login_title">Login to Grameen-Light</string>
+    <string name="map">Map</string>
+    <string name="mark_fixed">Mark Fixed</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="password">Password</string>
+    <string name="pending">Pending</string>
+    <string name="pending_repairs">Pending Repairs</string>
+    <string name="pole_id">Pole ID</string>
+    <string name="pole_map">Pole Map</string>
+    <string name="pole_monitoring">Pole Monitoring</string>
+    <string name="profile">Profile</string>
+    <string name="project_id" translatable="false">grameen-light-78f7d</string>
+    <string name="report_complaint">Report Issue</string>
+    <string name="report_issue">Report Streetlight Issue</string>
+    <string name="send_otp">Send OTP</string>
+    <string name="settings">Settings</string>
+    <string name="status">Status</string>
+    <string name="submit">Submit</string>
+    <string name="tagline">Smart Streetlight Monitoring for Villages</string>
+    <string name="total_complaints">Total Complaints</string>
+    <string name="total_reports">Total Reports</string>
+    <string name="update_status">Update Status</string>
+    <string name="upload_image">Upload Image (Optional)</string>
+    <string name="view_complaints">View Complaint Status</string>
+    <string name="working">Working</string>
+    <style name="Theme.GrameenLight" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/surface_container</item>
+        <item name="android:windowBackground">@color/background</item>
+    </style>
+</resources>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Colors -->
+    <color name="primary">#0D631B</color>
+    <color name="primary_container">#2E7D32</color>
+    <color name="on_primary">#FFFFFF</color>
+    <color name="on_primary_container">#CBFFC2</color>
+    
+    <!-- Secondary Colors -->
+    <color name="secondary">#795900</color>
+    <color name="secondary_container">#FEC330</color>
+    <color name="on_secondary">#FFFFFF</color>
+    <color name="on_secondary_container">#6F5100</color>
+    
+    <!-- Tertiary Colors -->
+    <color name="tertiary">#005C81</color>
+    <color name="tertiary_container">#23759F</color>
+    <color name="on_tertiary">#FFFFFF</color>
+    <color name="on_tertiary_container">#E6F3FF</color>
+    
+    <!-- Surface Colors -->
+    <color name="background">#FDF8FD</color>
+    <color name="surface">#FDF8FD</color>
+    <color name="surface_container">#F1ECF2</color>
+    <color name="surface_container_low">#F7F2F8</color>
+    <color name="surface_container_high">#EBE7EC</color>
+    <color name="surface_container_highest">#E5E1E7</color>
+    <color name="surface_bright">#FDF8FD</color>
+    <color name="surface_dim">#DDD9DE</color>
+    
+    <!-- Text Colors -->
+    <color name="on_surface">#1C1B1F</color>
+    <color name="on_surface_variant">#40493D</color>
+    <color name="outline">#707A6C</color>
+    <color name="outline_variant">#BFCABA</color>
+    
+    <!-- Status Colors -->
+    <color name="status_working">#4CAF50</color>
+    <color name="status_fused">#F44336</color>
+    <color name="status_daytime">#FFC107</color>
+    <color name="status_pending">#FF9800</color>
+    <color name="status_assigned">#2196F3</color>
+    <color name="status_fixed">#4CAF50</color>
+    
+    <!-- Error -->
+    <color name="error">#BA1A1A</color>
+    <color name="error_container">#FFDAD6</color>
+    <color name="on_error">#FFFFFF</color>
+    <color name="on_error_container">#93000A</color>
+</resources>
