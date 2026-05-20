@@ -1,16 +1,29 @@
-# Grameen Light
+# 🌟 Grameen Light 💡
 
-A comprehensive Android application for managing street light infrastructure in rural areas. The app enables citizens to report street light issues and allows administrators to monitor, track, and resolve complaints efficiently.
+A comprehensive Android application 📱 for managing rural street light infrastructure 🌍🏘️.  
+The app enables citizens 👥 to report street light issues 🚨 and allows administrators 🛠️ to monitor, track, and resolve complaints efficiently ⚡.
 
-## 🌟 Features
+---
 
-### For Citizens (Users)
-- **User Registration & Authentication** - Secure sign-up and login with Firebase Authentication
-- **Report Street Light Issues** - Submit complaints with photos, descriptions, and location
-- **Interactive Map View** - View nearby street light poles using OSMDroid
-- **Complaint Tracking** - Monitor the status of submitted complaints in real-time
-- **User Profile** - Manage personal information and view complaint history
+## ✨ Features
 
+### 👨‍👩‍👧‍👦 For Citizens (Users)
+
+- 🔐 **User Registration & Authentication**  
+  Secure sign-up and login using Firebase Authentication 🔥
+
+- 🚨 **Report Street Light Issues**  
+  Submit complaints with photos 📸, descriptions 📝, and live location 📍
+
+- 🗺️ **Interactive Map View**  
+  View nearby street light poles using OSMDroid 🌐
+
+- 📊 **Complaint Tracking**  
+  Monitor complaint status in real-time ⏳✅
+
+- 👤 **User Profile**  
+  Manage personal information and track complaint history 📂
+  
 ### For Administrators
 - **Admin Dashboard** - Comprehensive overview with analytics and statistics
 - **Real-time Alerts** - View and manage incoming complaints instantly
