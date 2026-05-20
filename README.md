@@ -260,14 +260,10 @@ The app includes mock data for testing:
 - Update Android Gradle Plugin if needed
 - Clean and rebuild: `./gradlew clean build`
 
-## 🤝 Contributing
+## �‍💻 Author
 
-Contributions are welcome! Please follow these steps:
+**Priya**
 
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Open a Pull Request
+Developed with care for rural street light management.
 
 
