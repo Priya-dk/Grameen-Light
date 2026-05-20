@@ -1,250 +1,179 @@
 package com.grameen.light.admin.screens
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ExitToApp
-import androidx.compose.material.icons.filled.Notifications
-import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.Settings
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Switch
-import androidx.compose.material3.SwitchDefaults
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.material.icons.filled.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
+import androidx.compose.ui.window.Dialog
+import com.grameen.light.core.viewmodel.AdminSettingsViewModel
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AdminSettingsScreen(navController: NavController) {
-    var darkMode by remember { mutableStateOf(false) }
-    var notifications by remember { mutableStateOf(true) }
-    
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = {
-                    Text(
-                        text = "Settings",
-                        fontSize = 20.sp,
-                        fontWeight = FontWeight.Bold
-                    )
-                }
-            )
+fun AdminSettingsScreen(
+    viewModel: AdminSettingsViewModel,
+    onLoggedOut: () -> Unit
+) {
+    val uiState by viewModel.uiState.collectAsState()
+    var showProfileDialog by remember { mutableStateOf(false) }
+
+    if (uiState.loggedOut) {
+        LaunchedEffect(Unit) {
+            onLoggedOut()
         }
-    ) { paddingValues ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(paddingValues)
-                .padding(horizontal = 16.dp, vertical = 16.dp)
-                .verticalScroll(rememberScrollState())
-        ) {
-            Spacer(modifier = Modifier.height(24.dp))
-            
-            // Profile Header
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Box(
-                    modifier = Modifier
-                        .size(100.dp)
-                        .background(
-                            MaterialTheme.colorScheme.primaryContainer,
-                            CircleShape
-                        ),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.Person,
-                        contentDescription = null,
-                        tint = MaterialTheme.colorScheme.primary,
-                        modifier = Modifier.size(50.dp)
-                    )
-                }
-                
-                Spacer(modifier = Modifier.height(16.dp))
-                
-                Text(
-                    text = "Panchayat Office",
-                    fontSize = 24.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.onSurface
-                )
-                
-                Spacer(modifier = Modifier.height(4.dp))
-                
-                Text(
-                    text = "Admin ID: ADMIN001",
-                    fontSize = 16.sp,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
+    }
+
+    if (showProfileDialog) {
+        EditProfileDialog(
+            currentName = uiState.adminName,
+            currentContact = uiState.adminContact,
+            onDismiss = { showProfileDialog = false },
+            onSave = { name, contact ->
+                viewModel.updateProfile(name, contact)
+                showProfileDialog = false
             }
-            
-            Spacer(modifier = Modifier.height(32.dp))
-            
-            Text(
-                text = "Preferences",
-                fontSize = 18.sp,
-                fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.onSurface
-            )
-            
-            Spacer(modifier = Modifier.height(16.dp))
-            
-            // Dark Mode Toggle
-            SettingsItem(
-                icon = Icons.Default.Settings,
-                label = "Dark Mode",
-                trailing = {
-                    Switch(
-                        checked = darkMode,
-                        onCheckedChange = { darkMode = it },
-                        colors = SwitchDefaults.colors(
-                            checkedThumbColor = MaterialTheme.colorScheme.primary,
-                            checkedTrackColor = MaterialTheme.colorScheme.primaryContainer,
-                            uncheckedThumbColor = MaterialTheme.colorScheme.onSurfaceVariant,
-                            uncheckedTrackColor = MaterialTheme.colorScheme.surfaceVariant
-                        )
+        )
+    }
+
+    Column(Modifier.fillMaxSize().background(Color(0xFFFAFAFA))) {
+        Surface(color = Color(0xFFFAFAFA)) {
+            Row(Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 12.dp)) {
+                Text("Settings", fontSize = 20.sp, fontWeight = FontWeight.Bold, color = Color(0xFF1B1B1B), fontFamily = FontFamily.SansSerif)
+            }
+        }
+
+        Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+            Box(Modifier.size(80.dp).clip(CircleShape).background(Color(0xFF1B5E20)), contentAlignment = Alignment.Center) {
+                Icon(Icons.Default.Person, null, Modifier.size(40.dp), Color.White)
+            }
+            Spacer(Modifier.height(12.dp))
+            Text(uiState.adminName, fontSize = 22.sp, fontWeight = FontWeight.Bold, color = Color(0xFF1B1B1B), fontFamily = FontFamily.SansSerif)
+            Text("Admin ID: ${uiState.adminId}", fontSize = 14.sp, color = Color(0xFF616161), fontFamily = FontFamily.SansSerif)
+            if (uiState.adminContact.isNotBlank()) {
+                Text(uiState.adminContact, fontSize = 13.sp, color = Color(0xFF757575), fontFamily = FontFamily.SansSerif)
+            }
+
+            Spacer(Modifier.height(24.dp))
+            Row(Modifier.fillMaxWidth()) {
+                Text("Preferences", fontSize = 18.sp, fontWeight = FontWeight.Bold, color = Color(0xFF1B1B1B), fontFamily = FontFamily.SansSerif)
+            }
+            Spacer(Modifier.height(12.dp))
+
+            SettingsToggleRow("\u2699\uFE0F Dark Mode", uiState.darkMode) { viewModel.toggleDarkMode(it) }
+            Spacer(Modifier.height(8.dp))
+            SettingsToggleRow("\uD83D\uDD14 Notifications", uiState.notifications) { viewModel.toggleNotifications(it) }
+
+            Spacer(Modifier.height(24.dp))
+            Row(Modifier.fillMaxWidth()) {
+                Text("System", fontSize = 18.sp, fontWeight = FontWeight.Bold, color = Color(0xFF1B1B1B), fontFamily = FontFamily.SansSerif)
+            }
+            Spacer(Modifier.height(12.dp))
+
+            SettingsActionRow("\uD83D\uDC64 Panchayat Profile", Icons.Default.Settings) { showProfileDialog = true }
+            Spacer(Modifier.height(8.dp))
+            SettingsActionRow("\u2795 Logout", Icons.Default.ExitToApp) { viewModel.logout() }
+
+            Spacer(Modifier.height(32.dp))
+            Text("Grameen-Light Admin Portal v1.0.0", fontSize = 12.sp, color = Color(0xFF9E9E9E), fontStyle = FontStyle.Italic, fontFamily = FontFamily.SansSerif)
+        }
+    }
+}
+
+@Composable
+private fun EditProfileDialog(
+    currentName: String,
+    currentContact: String,
+    onDismiss: () -> Unit,
+    onSave: (String, String) -> Unit
+) {
+    var name by remember(currentName) { mutableStateOf(currentName) }
+    var contact by remember(currentContact) { mutableStateOf(currentContact) }
+
+    Dialog(onDismissRequest = onDismiss) {
+        Card(
+            shape = RoundedCornerShape(16.dp),
+            colors = CardDefaults.cardColors(containerColor = Color.White),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp)
+        ) {
+            Column(modifier = Modifier.padding(20.dp)) {
+                Text("Panchayat Profile", fontSize = 20.sp, fontWeight = FontWeight.Bold, color = Color(0xFF1B1B1B))
+                Spacer(modifier = Modifier.height(12.dp))
+
+                OutlinedTextField(
+                    value = name,
+                    onValueChange = { name = it },
+                    label = { Text("Office Name") },
+                    singleLine = true,
+                    modifier = Modifier.fillMaxWidth()
+                )
+
+                Spacer(modifier = Modifier.height(10.dp))
+
+                OutlinedTextField(
+                    value = contact,
+                    onValueChange = { contact = it },
+                    label = { Text("Contact") },
+                    singleLine = true,
+                    modifier = Modifier.fillMaxWidth()
+                )
+
+                Spacer(modifier = Modifier.height(16.dp))
+                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+                    Text("Cancel", color = Color(0xFF757575), modifier = Modifier.clickable { onDismiss() }.padding(8.dp))
+                    Spacer(modifier = Modifier.width(16.dp))
+                    Text(
+                        "Save",
+                        color = Color(0xFF2E7D32),
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier.clickable { onSave(name, contact) }.padding(8.dp)
                     )
                 }
-            )
-            
-            Spacer(modifier = Modifier.height(12.dp))
-            
-            // Notifications Toggle
-            SettingsItem(
-                icon = Icons.Default.Notifications,
-                label = "Notifications",
-                trailing = {
-                    Switch(
-                        checked = notifications,
-                        onCheckedChange = { notifications = it },
-                        colors = SwitchDefaults.colors(
-                            checkedThumbColor = MaterialTheme.colorScheme.primary,
-                            checkedTrackColor = MaterialTheme.colorScheme.primaryContainer,
-                            uncheckedThumbColor = MaterialTheme.colorScheme.onSurfaceVariant,
-                            uncheckedTrackColor = MaterialTheme.colorScheme.surfaceVariant
-                        )
-                    )
-                }
-            )
-            
-            Spacer(modifier = Modifier.height(24.dp))
-            
-            Text(
-                text = "System",
-                fontSize = 18.sp,
-                fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.onSurface
-            )
-            
-            Spacer(modifier = Modifier.height(16.dp))
-            
-            SettingsItem(
-                icon = Icons.Default.Person,
-                label = "Panchayat Profile",
-                onClick = { /* TODO */ }
-            )
-            
-            Spacer(modifier = Modifier.height(12.dp))
-            
-            SettingsItem(
-                icon = Icons.Default.ExitToApp,
-                label = "Logout",
-                onClick = { 
-                    navController.navigate("admin_login") {
-                        popUpTo("admin_dashboard") { inclusive = true }
-                    }
-                }
-            )
-            
-            Spacer(modifier = Modifier.height(24.dp))
-            
-            // Footer
-            Text(
-                text = "Grameen-Light Admin Portal v1.0.0",
-                fontSize = 12.sp,
-                color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f),
-                modifier = Modifier.align(Alignment.CenterHorizontally)
+            }
+        }
+    }
+}
+
+@Composable
+private fun SettingsToggleRow(label: String, checked: Boolean, onToggle: (Boolean) -> Unit) {
+    Card(Modifier.fillMaxWidth(), shape = RoundedCornerShape(12.dp), colors = CardDefaults.cardColors(containerColor = Color(0xFFEDE7F6)), elevation = CardDefaults.cardElevation(0.dp)) {
+        Row(Modifier.fillMaxWidth().padding(16.dp), Arrangement.SpaceBetween, Alignment.CenterVertically) {
+            Text(label, fontSize = 15.sp, color = Color(0xFF1B1B1B), fontFamily = FontFamily.SansSerif)
+            Switch(
+                checked = checked,
+                onCheckedChange = onToggle,
+                colors = SwitchDefaults.colors(
+                    checkedThumbColor = Color.White,
+                    checkedTrackColor = Color(0xFF4CAF50),
+                    uncheckedThumbColor = Color.White,
+                    uncheckedTrackColor = Color(0xFFBDBDBD)
+                )
             )
         }
     }
 }
 
 @Composable
-fun SettingsItem(
-    icon: androidx.compose.ui.graphics.vector.ImageVector,
-    label: String,
-    trailing: @Composable (() -> Unit)? = null,
-    onClick: (() -> Unit)? = null
-) {
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(12.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceVariant
-        )
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(16.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Icon(
-                    imageVector = icon,
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.size(24.dp)
-                )
-                Text(
-                    text = label,
-                    fontSize = 16.sp,
-                    color = MaterialTheme.colorScheme.onSurface
-                )
-            }
-            
-            trailing?.invoke() ?: run {
-                Icon(
-                    imageVector = Icons.Default.Settings,
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-            }
+private fun SettingsActionRow(label: String, icon: androidx.compose.ui.graphics.vector.ImageVector, onClick: () -> Unit) {
+    Card(Modifier.fillMaxWidth().clickable { onClick() }, shape = RoundedCornerShape(12.dp), colors = CardDefaults.cardColors(containerColor = Color(0xFFEDE7F6)), elevation = CardDefaults.cardElevation(0.dp)) {
+        Row(Modifier.fillMaxWidth().padding(16.dp), Arrangement.SpaceBetween, Alignment.CenterVertically) {
+            Text(label, fontSize = 15.sp, color = Color(0xFF1B1B1B), fontFamily = FontFamily.SansSerif)
+            Icon(icon, null, Modifier.size(20.dp), Color(0xFF616161))
         }
     }
 }

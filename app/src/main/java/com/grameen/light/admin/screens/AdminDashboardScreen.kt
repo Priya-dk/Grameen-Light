@@ -1,366 +1,257 @@
 package com.grameen.light.admin.screens
 
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Build
-import androidx.compose.material.icons.filled.CheckCircle
-import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Icon
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.material.icons.filled.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
+import androidx.compose.ui.window.Dialog
+import com.grameen.light.core.model.Complaint
+import com.grameen.light.core.model.ComplaintStatus
+import com.grameen.light.core.viewmodel.AdminDashboardViewModel
 
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun AdminDashboardScreen(navController: NavController) {
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = {
-                    Text(
-                        text = "Admin Dashboard",
-                        fontSize = 20.sp,
-                        fontWeight = FontWeight.Bold
-                    )
-                }
-            )
-        }
-    ) { paddingValues ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(paddingValues)
-                .padding(16.dp)
-                .verticalScroll(rememberScrollState())
-        ) {
-            // Analytics Cards
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(12.dp)
-            ) {
-                AnalyticsCard(
-                    title = "Total Complaints",
-                    value = "156",
-                    icon = Icons.Default.Info,
-                    color = MaterialTheme.colorScheme.primaryContainer,
-                    iconColor = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier.weight(1f)
-                )
-                AnalyticsCard(
-                    title = "Pending Repairs",
-                    value = "23",
-                    icon = Icons.Default.Build,
-                    color = MaterialTheme.colorScheme.errorContainer,
-                    iconColor = MaterialTheme.colorScheme.error,
-                    modifier = Modifier.weight(1f)
-                )
-            }
-            
-            Spacer(modifier = Modifier.height(12.dp))
-            
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(12.dp)
-            ) {
-                AnalyticsCard(
-                    title = "Fixed Lights",
-                    value = "133",
-                    icon = Icons.Default.CheckCircle,
-                    color = MaterialTheme.colorScheme.tertiaryContainer,
-                    iconColor = MaterialTheme.colorScheme.tertiary,
-                    modifier = Modifier.weight(1f)
-                )
-                AnalyticsCard(
-                    title = "Energy Saved",
-                    value = "2.4M",
-                    icon = Icons.Default.Info,
-                    color = MaterialTheme.colorScheme.secondaryContainer,
-                    iconColor = MaterialTheme.colorScheme.secondary,
-                    modifier = Modifier.weight(1f)
-                )
-            }
-            
-            Spacer(modifier = Modifier.height(24.dp))
-            
-            // Recent Complaints Section
-            Text(
-                text = "Recent Complaints",
-                fontSize = 18.sp,
-                fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.onSurface
-            )
-            
-            Spacer(modifier = Modifier.height(16.dp))
-            
-            AdminComplaintCard(
-                complaintId = "CMP003",
-                poleId = "Pole-010",
-                issueType = "Burning in Daytime",
-                citizenName = "Mohan Singh",
-                status = "Fixed",
-                statusColor = MaterialTheme.colorScheme.primary
-            )
-            
-            Spacer(modifier = Modifier.height(12.dp))
-            
-            AdminComplaintCard(
-                complaintId = "CMP002",
-                poleId = "Pole-005",
-                issueType = "Not Working",
-                citizenName = "Sita Devi",
-                status = "Assigned",
-                statusColor = MaterialTheme.colorScheme.tertiary
-            )
-            
-            Spacer(modifier = Modifier.height(12.dp))
-            
-            AdminComplaintCard(
-                complaintId = "CMP001",
-                poleId = "Pole-001",
-                issueType = "Fused",
-                citizenName = "Ramesh Kumar",
-                status = "Pending",
-                statusColor = MaterialTheme.colorScheme.error
-            )
-            
-            Spacer(modifier = Modifier.height(24.dp))
-            
-            // Quick Actions
-            Text(
-                text = "Quick Actions",
-                fontSize = 18.sp,
-                fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.onSurface
-            )
-            
-            Spacer(modifier = Modifier.height(16.dp))
-            
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(12.dp)
-            ) {
-                QuickActionCard(
-                    label = "Complaint Management",
-                    color = MaterialTheme.colorScheme.primaryContainer,
-                    modifier = Modifier.weight(1f)
-                )
-                QuickActionCard(
-                    label = "Pole Monitoring",
-                    color = MaterialTheme.colorScheme.tertiaryContainer,
-                    modifier = Modifier.weight(1f)
-                )
-            }
-            
-            Spacer(modifier = Modifier.height(12.dp))
-            
-            QuickActionCard(
-                label = "Analytics",
-                color = MaterialTheme.colorScheme.secondaryContainer,
-                modifier = Modifier.fillMaxWidth()
-            )
-        }
-    }
-}
+private data class MockAlert(
+    val poleId: String,
+    val issueType: String,
+    val location: String
+)
+
+private val mockAlerts = listOf(
+    MockAlert("P-402", "Fused Bulb", "Sector 4, Greenfield Ave"),
+    MockAlert("P-118", "ON in Daytime", "Main Road, Near Panchayat Office"),
+    MockAlert("P-219", "Flickering", "School Lane, Block B"),
+    MockAlert("P-507", "Pole Damaged", "Market Street, Junction 2"),
+    MockAlert("P-330", "Wire/Electrical issue", "Riverside Colony, Lane 3")
+)
 
 @Composable
-fun AnalyticsCard(
-    title: String,
-    value: String,
-    icon: androidx.compose.ui.graphics.vector.ImageVector,
-    color: Color,
-    iconColor: Color,
-    modifier: Modifier = Modifier
+fun AdminDashboardScreen(
+    viewModel: AdminDashboardViewModel,
+    onOpenMap: (String?) -> Unit = {}
 ) {
-    Card(
-        modifier = modifier.height(120.dp),
-        colors = CardDefaults.cardColors(containerColor = color),
-        shape = RoundedCornerShape(16.dp)
-    ) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
-        ) {
-            Icon(
-                imageVector = icon,
-                contentDescription = null,
-                tint = iconColor,
-                modifier = Modifier.size(32.dp)
-            )
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                text = value,
-                fontSize = 24.sp,
-                fontWeight = FontWeight.Bold,
-                color = iconColor
-            )
-            Text(
-                text = title,
-                fontSize = 12.sp,
-                color = iconColor.copy(alpha = 0.8f)
-            )
-        }
-    }
-}
+    val uiState by viewModel.uiState.collectAsState()
+    val context = LocalContext.current
+    var selectedComplaint by remember { mutableStateOf<Complaint?>(null) }
 
-@Composable
-fun AdminComplaintCard(
-    complaintId: String,
-    poleId: String,
-    issueType: String,
-    citizenName: String,
-    status: String,
-    statusColor: Color
-) {
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(12.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceVariant
+    if (selectedComplaint != null) {
+        DispatchBottomSheet(
+            complaint = selectedComplaint!!,
+            onDismiss = { selectedComplaint = null },
+            onUpdate = { workerName, status ->
+                viewModel.dispatchComplaint(selectedComplaint!!.complaintId, workerName, status)
+                selectedComplaint = null
+            }
         )
-    ) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp)
-        ) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    text = complaintId,
-                    fontSize = 14.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.onSurface
-                )
-                Box(
-                    modifier = Modifier
-                        .background(
-                            statusColor.copy(alpha = 0.1f),
-                            RoundedCornerShape(8.dp)
+    }
+
+    Column(Modifier.fillMaxSize().background(Color(0xFFFAFAFA))) {
+        DashboardHeader()
+        if (uiState.loading && uiState.totalComplaints == 0) {
+            Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                CircularProgressIndicator(color = Color(0xFF2E7D32))
+            }
+        } else {
+            val hasRealData = uiState.totalComplaints > 0 || uiState.recentAlerts.isNotEmpty()
+            val totalComplaints = if (hasRealData) uiState.totalComplaints else 24
+            val pendingRepairs = if (hasRealData) uiState.pendingRepairs else 7
+            val fixedLights = if (hasRealData) uiState.fixedLights else 15
+            val energySaved = if (hasRealData) uiState.energySaved else 482
+
+            Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(16.dp)) {
+                Text("Analytics Overview", fontSize = 24.sp, fontWeight = FontWeight.Bold, color = Color(0xFF1B1B1B), fontFamily = FontFamily.SansSerif)
+                Spacer(Modifier.height(16.dp))
+                Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                    StatCard(Icons.Default.Info, Color(0xFF5D6360), "TOTAL COMPLAINTS", totalComplaints.toString(), Modifier.weight(1f))
+                    StatCard(Icons.Default.Build, Color(0xFF7F7445), "PENDING REPAIRS", pendingRepairs.toString(), Modifier.weight(1f))
+                }
+                Spacer(Modifier.height(12.dp))
+                Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                    StatCard(Icons.Default.CheckCircle, Color(0xFF4CAF50), "FIXED LIGHTS", fixedLights.toString(), Modifier.weight(1f))
+                    StatCard(Icons.Default.Info, Color(0xFFE1373B), "ENERGY SAVED (KWH)", energySaved.toString(), Modifier.weight(1f))
+                }
+                Spacer(Modifier.height(24.dp))
+                Row(Modifier.fillMaxWidth(), Arrangement.SpaceBetween, Alignment.CenterVertically) {
+                    Text("Recent Alerts", fontSize = 20.sp, fontWeight = FontWeight.Bold, color = Color(0xFF1B1B1B), fontFamily = FontFamily.SansSerif)
+                    Text("View All", fontSize = 13.sp, color = Color(0xFF0F6C3A), fontWeight = FontWeight.Medium, modifier = Modifier.clickable { })
+                }
+                Spacer(Modifier.height(14.dp))
+
+                if (hasRealData) {
+                    uiState.recentAlerts.forEach { complaint ->
+                        AlertCard(
+                            poleId = "Pole ID: ${complaint.poleId}",
+                            location = "${complaint.issueType} - ${complaint.description.take(50)}",
+                            onNavigate = { onOpenMap(complaint.poleId) },
+                            onDispatch = { selectedComplaint = complaint }
                         )
-                        .padding(horizontal = 12.dp, vertical = 6.dp)
-                ) {
-                    Text(
-                        text = status,
-                        fontSize = 12.sp,
-                        fontWeight = FontWeight.Medium,
-                        color = statusColor
-                    )
+                        Spacer(Modifier.height(12.dp))
+                    }
+                } else {
+                    mockAlerts.forEach { mock ->
+                        AlertCard(
+                            poleId = "Pole ID: ${mock.poleId}",
+                            location = "${mock.issueType} - ${mock.location}",
+                            onNavigate = { onOpenMap(mock.poleId) },
+                            onDispatch = { }
+                        )
+                        Spacer(Modifier.height(12.dp))
+                    }
                 }
-            }
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                text = "$poleId - $issueType",
-                fontSize = 14.sp,
-                color = MaterialTheme.colorScheme.onSurface
-            )
-            Spacer(modifier = Modifier.height(4.dp))
-            Text(
-                text = "Reported by: $citizenName",
-                fontSize = 12.sp,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
-            Spacer(modifier = Modifier.height(12.dp))
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                AdminActionButton(
-                    label = "Assign Repair",
-                    color = MaterialTheme.colorScheme.tertiaryContainer,
-                    textColor = MaterialTheme.colorScheme.tertiary,
-                    modifier = Modifier.weight(1f)
-                )
-                AdminActionButton(
-                    label = "Mark Fixed",
-                    color = MaterialTheme.colorScheme.primaryContainer,
-                    textColor = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier.weight(1f)
-                )
+                Spacer(Modifier.height(16.dp))
             }
         }
     }
 }
 
-@Composable
-fun AdminActionButton(
-    label: String,
-    color: Color,
-    textColor: Color,
-    modifier: Modifier = Modifier
-) {
-    Box(
-        modifier = modifier
-            .height(40.dp)
-            .background(color, RoundedCornerShape(8.dp))
-            .padding(horizontal = 12.dp),
-        contentAlignment = Alignment.Center
-    ) {
-        Text(
-            text = label,
-            fontSize = 12.sp,
-            fontWeight = FontWeight.Medium,
-            color = textColor
-        )
+@Composable private fun DashboardHeader() {
+    Surface(color = Color(0xFFFAFAFA)) {
+        Row(Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 12.dp), Arrangement.SpaceBetween, Alignment.CenterVertically) {
+            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                Text("\u26A1", fontSize = 20.sp)
+                Text("VillageLight Admin", fontSize = 20.sp, fontWeight = FontWeight.Bold, color = Color(0xFF1B5E20), fontFamily = FontFamily.SansSerif)
+            }
+            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                Icon(Icons.Default.Notifications, null, Modifier.size(24.dp), Color(0xFF232824))
+                Box(Modifier.size(32.dp).clip(CircleShape).background(Color(0xFFD6DDD8)), contentAlignment = Alignment.Center) {
+                    Icon(Icons.Default.Person, null, Modifier.size(20.dp), Color(0xFF1B5E20))
+                }
+            }
+        }
     }
 }
 
-@Composable
-fun QuickActionCard(
-    label: String,
-    color: Color,
-    modifier: Modifier = Modifier
+@Composable private fun StatCard(icon: ImageVector, iconTint: Color, label: String, value: String, modifier: Modifier) {
+    Card(modifier.height(120.dp), colors = CardDefaults.cardColors(containerColor = Color.White), shape = RoundedCornerShape(12.dp), elevation = CardDefaults.cardElevation(2.dp)) {
+        Column(Modifier.fillMaxSize().padding(14.dp), verticalArrangement = Arrangement.SpaceBetween) {
+            Icon(icon, null, Modifier.size(20.dp), iconTint)
+            Column {
+                Text(label, fontSize = 10.sp, color = Color(0xFF757575), fontWeight = FontWeight.Medium, fontFamily = FontFamily.SansSerif)
+                Text(value, fontSize = 28.sp, fontWeight = FontWeight.Bold, color = Color(0xFF1B1B1B), fontFamily = FontFamily.SansSerif)
+            }
+        }
+    }
+}
+
+@Composable fun AlertCard(poleId: String, location: String, onNavigate: () -> Unit = {}, onDispatch: () -> Unit = {}) {
+    Card(Modifier.fillMaxWidth(), shape = RoundedCornerShape(12.dp), colors = CardDefaults.cardColors(containerColor = Color(0xFFF5F5F5)), elevation = CardDefaults.cardElevation(1.dp)) {
+        Row(Modifier.fillMaxWidth()) {
+            Box(Modifier.width(4.dp).height(140.dp).background(Color(0xFFD32F2F)))
+            Row(Modifier.fillMaxWidth().padding(12.dp), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                Box(Modifier.size(36.dp).clip(CircleShape).background(Color(0xFFFFCDD2)), contentAlignment = Alignment.Center) {
+                    Text("\u26A0", color = Color(0xFFD32F2F), fontSize = 18.sp, fontWeight = FontWeight.Bold)
+                }
+                Column(Modifier.weight(1f)) {
+                    Row(Modifier.fillMaxWidth(), Arrangement.SpaceBetween, Alignment.Top) {
+                        Column {
+                            Text(poleId, fontSize = 14.sp, fontWeight = FontWeight.Bold, color = Color(0xFF1B1B1B), fontFamily = FontFamily.SansSerif)
+                            Text(location, fontSize = 12.sp, color = Color(0xFF616161), lineHeight = 16.sp, fontFamily = FontFamily.SansSerif)
+                        }
+                        Box(Modifier.background(Color(0xFFFFCDD2), RoundedCornerShape(999.dp)).padding(horizontal = 10.dp, vertical = 4.dp)) {
+                            Text("FUSED LIGHT", fontSize = 9.sp, fontWeight = FontWeight.Bold, color = Color(0xFFD32F2F), fontFamily = FontFamily.SansSerif)
+                        }
+                    }
+                    Spacer(Modifier.height(12.dp))
+                    Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                        Box(Modifier.weight(1f).height(40.dp).clip(RoundedCornerShape(8.dp)).background(Color(0xFF2E7D32)).clickable { onNavigate() }, contentAlignment = Alignment.Center) {
+                            Row(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
+                                Icon(Icons.Default.LocationOn, null, Modifier.size(14.dp), Color.White)
+                                Text("Navigate", color = Color.White, fontSize = 12.sp, fontWeight = FontWeight.SemiBold, fontFamily = FontFamily.SansSerif)
+                            }
+                        }
+                        Box(Modifier.weight(1f).height(40.dp).clip(RoundedCornerShape(8.dp)).background(Color.White).border(1.dp, Color(0xFF757575), RoundedCornerShape(8.dp)).clickable { onDispatch() }, contentAlignment = Alignment.Center) {
+                            Row(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
+                                Icon(Icons.Default.Build, null, Modifier.size(14.dp), Color(0xFF424242))
+                                Text("Dispatch", color = Color(0xFF424242), fontSize = 12.sp, fontWeight = FontWeight.SemiBold, fontFamily = FontFamily.SansSerif)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable private fun DispatchBottomSheet(
+    complaint: Complaint,
+    onDismiss: () -> Unit,
+    onUpdate: (String, ComplaintStatus) -> Unit
 ) {
-    Card(
-        modifier = modifier.height(80.dp),
-        colors = CardDefaults.cardColors(containerColor = color),
-        shape = RoundedCornerShape(12.dp)
-    ) {
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(16.dp),
-            contentAlignment = Alignment.Center
-        ) {
-            Text(
-                text = label,
-                fontSize = 14.sp,
-                fontWeight = FontWeight.Medium,
-                color = MaterialTheme.colorScheme.onTertiaryContainer
-            )
+    var workerName by remember { mutableStateOf(complaint.assignedWorker ?: "") }
+    var selectedStatus by remember { mutableStateOf(ComplaintStatus.ASSIGNED) }
+    val statuses = listOf(
+        ComplaintStatus.PENDING,
+        ComplaintStatus.ASSIGNED,
+        ComplaintStatus.IN_PROGRESS,
+        ComplaintStatus.FIXED
+    )
+
+    Dialog(onDismissRequest = onDismiss) {
+        Card(shape = RoundedCornerShape(16.dp), colors = CardDefaults.cardColors(containerColor = Color.White), modifier = Modifier.fillMaxWidth().padding(16.dp)) {
+            Column(Modifier.padding(20.dp)) {
+                Text("Dispatch Worker", fontSize = 20.sp, fontWeight = FontWeight.Bold, color = Color(0xFF1B1B1B))
+                Spacer(Modifier.height(4.dp))
+                Text("Complaint: ${complaint.complaintId}", fontSize = 14.sp, color = Color(0xFF616161))
+                Spacer(Modifier.height(16.dp))
+
+                Text("Worker Name:", fontSize = 14.sp, color = Color(0xFF616161))
+                Spacer(Modifier.height(4.dp))
+                OutlinedTextField(
+                    value = workerName,
+                    onValueChange = { workerName = it },
+                    singleLine = true,
+                    modifier = Modifier.fillMaxWidth()
+                )
+
+                Spacer(Modifier.height(16.dp))
+
+                Text("Status:", fontSize = 14.sp, color = Color(0xFF616161))
+                Spacer(Modifier.height(4.dp))
+                statuses.forEach { status ->
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable { selectedStatus = status }
+                            .padding(vertical = 2.dp)
+                    ) {
+                        RadioButton(selected = selectedStatus == status, onClick = { selectedStatus = status })
+                        Text(status.value, fontSize = 14.sp, color = Color(0xFF1B1B1B))
+                    }
+                }
+
+                Spacer(Modifier.height(8.dp))
+                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+                    Text("Cancel", color = Color(0xFF757575), modifier = Modifier.clickable { onDismiss() }.padding(8.dp))
+                    Spacer(Modifier.width(16.dp))
+                    Text(
+                        "Update",
+                        color = Color(0xFF2E7D32),
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier
+                            .clickable { onUpdate(workerName, selectedStatus) }
+                            .padding(8.dp)
+                    )
+                }
+            }
         }
     }
 }

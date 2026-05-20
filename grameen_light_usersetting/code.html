@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings - Grameen-Light</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary": "#00390a",
+                    "surface-variant": "#30362e",
+                    "surface-container": "#1b211a",
+                    "on-tertiary-container": "#690034",
+                    "primary": "#78dc77",
+                    "on-primary-fixed-variant": "#005313",
+                    "on-surface": "#dee4d9",
+                    "outline-variant": "#3f4a3c",
+                    "inverse-on-surface": "#2c322a",
+                    "background": "#0f150e",
+                    "on-secondary-container": "#433000",
+                    "error": "#ffb4ab",
+                    "surface-container-lowest": "#0a1009",
+                    "on-primary-container": "#003c0b",
+                    "primary-container": "#4caf50",
+                    "on-tertiary-fixed": "#3e001c",
+                    "secondary-fixed": "#ffdfa0",
+                    "on-error-container": "#ffdad6",
+                    "inverse-primary": "#006e1c",
+                    "secondary-fixed-dim": "#f6be39",
+                    "on-primary-fixed": "#002204",
+                    "on-error": "#690005",
+                    "on-tertiary-fixed-variant": "#861948",
+                    "surface-tint": "#78dc77",
+                    "tertiary-fixed": "#ffd9e2",
+                    "tertiary-fixed-dim": "#ffb1c7",
+                    "primary-fixed": "#94f990",
+                    "surface-bright": "#353b33",
+                    "surface-container-high": "#262c24",
+                    "on-tertiary": "#650032",
+                    "secondary": "#f6be39",
+                    "secondary-container": "#c59300",
+                    "inverse-surface": "#dee4d9",
+                    "on-secondary-fixed-variant": "#5c4300",
+                    "outline": "#899484",
+                    "surface-container-highest": "#30362e",
+                    "on-secondary": "#402d00",
+                    "on-surface-variant": "#becab9",
+                    "primary-fixed-dim": "#78dc77",
+                    "surface": "#0f150e",
+                    "surface-dim": "#0f150e",
+                    "tertiary": "#ffb1c7",
+                    "on-background": "#dee4d9",
+                    "surface-container-low": "#171d16",
+                    "tertiary-container": "#f26f9d",
+                    "error-container": "#93000a",
+                    "on-secondary-fixed": "#261a00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "margin-desktop": "24px",
+                    "stack-lg": "24px",
+                    "base": "8px",
+                    "margin-mobile": "16px",
+                    "stack-md": "12px",
+                    "stack-sm": "4px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["10px", {"lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0f150e;
+            font-family: 'Inter', sans-serif;
+            color: #dee4d9;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .section-card {
+            background-color: #1b211a;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .custom-toggle:checked + .toggle-bg {
+            background-color: #4caf50;
+        }
+        .custom-toggle:checked + .toggle-bg .toggle-dot {
+            transform: translateX(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="pb-24">
+<!-- Top Bar Component -->
+<header class="fixed top-0 w-full z-50 bg-background flex items-center px-margin-mobile h-14 w-full">
+<div class="flex items-center w-full">
+<button class="p-2 -ml-2 rounded-full hover:bg-surface-variant transition-colors duration-200">
+<span class="material-symbols-outlined text-on-surface" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="ml-4 font-headline-md text-headline-md font-bold text-on-surface">Settings</h1>
+</div>
+</header>
+<main class="mt-14 px-margin-mobile pt-stack-lg space-y-stack-lg">
+<!-- Profile Hero Section -->
+<section class="section-card p-6 rounded-xl flex flex-col items-center text-center">
+<div class="relative">
+<div class="w-24 h-24 rounded-full border-4 border-primary p-1 overflow-hidden">
+<img alt="Rajesh Kumar" class="w-full h-full rounded-full object-cover" data-alt="A professional portrait of a South Asian man in his early 40s with a kind expression and a neatly trimmed beard. He is wearing a simple, clean linen shirt. The background is a soft, blurred agricultural field at dawn, with warm golden light peeking through. The image is framed with a subtle emerald green circular glow consistent with a modern corporate app aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBW2VNr0H0gkps2oKOdg64r-GRpfJSW1G1yXWJokZ_cs8JXH2S-3nONkMFlc8HAizaa3ndFlfn_GwiaV5ni_lKirH-0cZmOVehiNmbe8xCrn0E3LwNjEYIwPcfB1FXWesjnQGX9DHxd8jMJcVXaYCbSwdCv7CiiChDqcq0hqe0nNp--YRAwNnwOmhDCXNb0qN8J1nDMLpohUi0Q9c-rtumcEM391NoHaKvAOSD_X0Wb9kvBZApjNxC6uHg2KvRkURwxsJHFUfZKT9A"/>
+</div>
+</div>
+<h2 class="mt-4 font-headline-md text-headline-md font-bold text-on-surface">Rajesh Kumar</h2>
+<p class="font-body-md text-on-surface-variant">+91 98765 43210</p>
+<button class="mt-6 px-6 py-2 border border-primary text-primary font-label-md text-label-md rounded-full hover:bg-primary/10 transition-colors">
+                Edit Profile
+            </button>
+</section>
+<!-- Account Section -->
+<div class="space-y-stack-sm">
+<h3 class="px-2 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Account</h3>
+<section class="section-card rounded-xl overflow-hidden">
+<div class="divide-y divide-outline-variant/20">
+<button class="w-full flex items-center justify-between p-4 hover:bg-surface-variant/30 transition-colors">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="person">person</span>
+<span class="font-body-lg text-on-surface">Edit Profile</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 hover:bg-surface-variant/30 transition-colors">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="lock">lock</span>
+<span class="font-body-lg text-on-surface">Change Password</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 hover:bg-surface-variant/30 transition-colors">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="phone_iphone">phone_iphone</span>
+<span class="font-body-lg text-on-surface">Linked Phone</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</section>
+</div>
+<!-- Notifications Section -->
+<div class="space-y-stack-sm">
+<h3 class="px-2 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Notifications</h3>
+<section class="section-card rounded-xl overflow-hidden p-4 space-y-4">
+<div class="flex items-center justify-between">
+<span class="font-body-lg text-on-surface">Complaint Alerts</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only custom-toggle" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant rounded-full toggle-bg transition-colors duration-200">
+<div class="absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform duration-200 toggle-dot"></div>
+</div>
+</label>
+</div>
+<div class="flex items-center justify-between border-t border-outline-variant/20 pt-4">
+<span class="font-body-lg text-on-surface">Assignment Alerts</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only custom-toggle" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant rounded-full toggle-bg transition-colors duration-200">
+<div class="absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform duration-200 toggle-dot"></div>
+</div>
+</label>
+</div>
+<div class="flex items-center justify-between border-t border-outline-variant/20 pt-4">
+<span class="font-body-lg text-on-surface">Energy Reports</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only custom-toggle" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant rounded-full toggle-bg transition-colors duration-200">
+<div class="absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform duration-200 toggle-dot"></div>
+</div>
+</label>
+</div>
+</section>
+</div>
+<!-- Preferences Section -->
+<div class="space-y-stack-sm">
+<h3 class="px-2 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Preferences</h3>
+<section class="section-card rounded-xl overflow-hidden">
+<div class="divide-y divide-outline-variant/20">
+<div class="flex items-center justify-between p-4">
+<span class="font-body-lg text-on-surface">Language</span>
+<span class="font-body-md text-primary">English</span>
+</div>
+<div class="flex items-center justify-between p-4">
+<span class="font-body-lg text-on-surface">Dark Mode</span>
+<div class="flex items-center gap-2">
+<span class="text-label-sm text-on-surface-variant">ON</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only custom-toggle" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant rounded-full toggle-bg transition-colors duration-200">
+<div class="absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform duration-200 toggle-dot"></div>
+</div>
+</label>
+</div>
+</div>
+<div class="flex items-center justify-between p-4">
+<span class="font-body-lg text-on-surface">Map Style</span>
+<span class="font-body-md text-primary">Satellite</span>
+</div>
+</div>
+</section>
+</div>
+<!-- Support Section -->
+<div class="space-y-stack-sm">
+<h3 class="px-2 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Support</h3>
+<section class="section-card rounded-xl overflow-hidden">
+<div class="divide-y divide-outline-variant/20">
+<button class="w-full flex items-center justify-between p-4 hover:bg-surface-variant/30 transition-colors text-left">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="help">help</span>
+<span class="font-body-lg text-on-surface">Help &amp; FAQ</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 hover:bg-surface-variant/30 transition-colors text-left">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-error" data-icon="bug_report">bug_report</span>
+<span class="font-body-lg text-on-surface">Report a Bug</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 hover:bg-surface-variant/30 transition-colors text-left">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary" data-icon="account_balance">account_balance</span>
+<span class="font-body-lg text-on-surface">Contact Panchayat</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</section>
+</div>
+<!-- Account Actions -->
+<section class="pt-4 space-y-4">
+<button class="w-full h-14 bg-primary-container text-on-primary-container font-headline-md text-headline-md rounded-xl active:scale-[0.98] transition-transform">
+                Logout
+            </button>
+<button class="w-full h-14 border border-error text-error font-headline-md text-headline-md rounded-xl active:scale-[0.98] transition-transform">
+                Delete Account
+            </button>
+</section>
+</main>
+<!-- Bottom Nav Component -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter py-base bg-surface-container-lowest rounded-t-xl">
+<button class="flex flex-col items-center justify-center text-on-surface-variant w-12 h-12 transition-transform active:scale-90 hover:opacity-80">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant w-12 h-12 transition-transform active:scale-90 hover:opacity-80">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="font-label-md text-label-md">Map</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant w-12 h-12 transition-transform active:scale-90 hover:opacity-80">
+<span class="material-symbols-outlined" data-icon="distance">distance</span>
+<span class="font-label-md text-label-md">Tracking</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full w-12 h-12 transition-transform active:scale-90">
+<span class="material-symbols-outlined" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</button>
+</nav>
+<script>
+        // Simple logic for toggle simulation
+        document.querySelectorAll('.custom-toggle').forEach(toggle => {
+            toggle.addEventListener('change', function() {
+                console.log('Preference updated');
+            });
+        });
+    </script>
+</body></html>

@@ -91,7 +91,23 @@
     <string name="upload_image">Upload Image (Optional)</string>
     <string name="view_complaints">View Complaint Status</string>
     <string name="working">Working</string>
-    <style name="Theme.GrameenLight" parent="android:Theme.Material.Light.NoActionBar">
+    <style name="AdminNavActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">#2E7D32</item>
+        <item name="android:width">56dp</item>
+        <item name="android:height">32dp</item>
+        <item name="shapeAppearance">@style/AdminNavPillShape</item>
+    </style>
+    <style name="AdminNavPillShape" parent="ShapeAppearance.Material3.Corner.Full">
+        <item name="cornerSize">50%</item>
+    </style>
+    <style name="AdminNavTextActive" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="AdminNavTextInactive" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textSize">11sp</item>
+    </style>
+    <style name="Theme.GrameenLight" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:statusBarColor">@color/surface_container</item>
         <item name="android:windowBackground">@color/background</item>
     </style>

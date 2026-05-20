@@ -1,54 +1,118 @@
 [
     {
-        "merged": "com.grameen.light.app-merged_res-60:/mipmap-mdpi_ic_launcher.png.flat",
-        "source": "com.grameen.light.app-main-62:/mipmap-mdpi/ic_launcher.png"
+        "merged": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-merged_res-78:/drawable_ic_map.xml.flat",
+        "source": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-main-80:/drawable/ic_map.xml"
     },
     {
-        "merged": "com.grameen.light.app-merged_res-60:/mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "com.grameen.light.app-main-62:/mipmap-xxhdpi/ic_launcher.png"
+        "merged": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-merged_res-78:/drawable_ic_marker_green.xml.flat",
+        "source": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-main-80:/drawable/ic_marker_green.xml"
     },
     {
-        "merged": "com.grameen.light.app-merged_res-60:/mipmap-mdpi_ic_launcher_round.png.flat",
-        "source": "com.grameen.light.app-main-62:/mipmap-mdpi/ic_launcher_round.png"
+        "merged": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-merged_res-78:/color_admin_nav_item_color.xml.flat",
+        "source": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-main-80:/color/admin_nav_item_color.xml"
     },
     {
-        "merged": "com.grameen.light.app-merged_res-60:/mipmap-hdpi_ic_launcher.png.flat",
-        "source": "com.grameen.light.app-main-62:/mipmap-hdpi/ic_launcher.png"
+        "merged": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-merged_res-78:/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-main-80:/mipmap-xhdpi/ic_launcher_round.png"
     },
     {
-        "merged": "com.grameen.light.app-merged_res-60:/mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "com.grameen.light.app-main-62:/mipmap-xxxhdpi/ic_launcher.png"
+        "merged": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-merged_res-78:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-main-80:/mipmap-xhdpi/ic_launcher.png"
     },
     {
-        "merged": "com.grameen.light.app-merged_res-60:/mipmap-anydpi-v26_ic_launcher_foreground.xml.flat",
-        "source": "com.grameen.light.app-main-62:/mipmap-anydpi-v26/ic_launcher_foreground.xml"
+        "merged": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-merged_res-78:/menu_admin_bottom_nav.xml.flat",
+        "source": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-main-80:/menu/admin_bottom_nav.xml"
     },
     {
-        "merged": "com.grameen.light.app-merged_res-60:/mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "com.grameen.light.app-main-62:/mipmap-xxhdpi/ic_launcher_round.png"
+        "merged": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-merged_res-78:/layout_activity_admin.xml.flat",
+        "source": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-main-80:/layout/activity_admin.xml"
     },
     {
-        "merged": "com.grameen.light.app-merged_res-60:/mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "com.grameen.light.app-main-62:/mipmap-hdpi/ic_launcher_round.png"
+        "merged": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-merged_res-78:/drawable_ic_settings.xml.flat",
+        "source": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-main-80:/drawable/ic_settings.xml"
     },
     {
-        "merged": "com.grameen.light.app-merged_res-60:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "com.grameen.light.app-main-62:/mipmap-xxxhdpi/ic_launcher_round.png"
+        "merged": "com.grameen.light.app-merged_res-78:/drawable_ic_marker_red.xml.flat",
+        "source": "com.grameen.light.app-main-80:/drawable/ic_marker_red.xml"
     },
     {
-        "merged": "com.grameen.light.app-merged_res-60:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.grameen.light.app-main-62:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-merged_res-78:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-main-80:/mipmap-hdpi/ic_launcher_round.png"
     },
     {
-        "merged": "com.grameen.light.app-merged_res-60:/mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "com.grameen.light.app-main-62:/mipmap-xhdpi/ic_launcher.png"
+        "merged": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-merged_res-78:/drawable_ic_marker_red.xml.flat",
+        "source": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-main-80:/drawable/ic_marker_red.xml"
     },
     {
-        "merged": "com.grameen.light.app-merged_res-60:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "com.grameen.light.app-main-62:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-merged_res-78:/drawable_ic_alert.xml.flat",
+        "source": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-main-80:/drawable/ic_alert.xml"
     },
     {
-        "merged": "com.grameen.light.app-merged_res-60:/mipmap-xhdpi_ic_launcher_round.png.flat",
-        "source": "com.grameen.light.app-main-62:/mipmap-xhdpi/ic_launcher_round.png"
+        "merged": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-merged_res-78:/drawable_ic_dashboard.xml.flat",
+        "source": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-main-80:/drawable/ic_dashboard.xml"
+    },
+    {
+        "merged": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-merged_res-78:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-main-80:/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-merged_res-78:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-main-80:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-merged_res-78:/drawable_ic_marker_blue.xml.flat",
+        "source": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-main-80:/drawable/ic_marker_blue.xml"
+    },
+    {
+        "merged": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-merged_res-78:/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-main-80:/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-merged_res-78:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-main-80:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.grameen.light.app-merged_res-78:/drawable_ic_marker_green.xml.flat",
+        "source": "com.grameen.light.app-main-80:/drawable/ic_marker_green.xml"
+    },
+    {
+        "merged": "com.grameen.light.app-merged_res-78:/drawable_ic_marker_blue.xml.flat",
+        "source": "com.grameen.light.app-main-80:/drawable/ic_marker_blue.xml"
+    },
+    {
+        "merged": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-merged_res-78:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-main-80:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-merged_res-78:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-main-80:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-merged_res-78:/mipmap-anydpi-v26_ic_launcher_foreground.xml.flat",
+        "source": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-main-80:/mipmap-anydpi-v26/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.grameen.light.app-merged_res-78:/drawable_ic_marker_yellow.xml.flat",
+        "source": "com.grameen.light.app-main-80:/drawable/ic_marker_yellow.xml"
+    },
+    {
+        "merged": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-merged_res-78:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-main-80:/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-merged_res-78:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-main-80:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-merged_res-78:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-main-80:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.grameen.light.app-merged_res-78:/xml_network_security_config.xml.flat",
+        "source": "com.grameen.light.app-main-80:/xml/network_security_config.xml"
+    },
+    {
+        "merged": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-merged_res-78:/drawable_ic_marker_yellow.xml.flat",
+        "source": "/Users/nithinm/.gradle/daemon/8.2/com.grameen.light.app-main-80:/drawable/ic_marker_yellow.xml"
     }
 ]

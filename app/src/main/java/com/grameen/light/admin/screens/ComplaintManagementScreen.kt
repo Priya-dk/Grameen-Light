@@ -22,6 +22,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -116,6 +117,32 @@ fun ComplaintManagementScreen(navController: NavController) {
                 status = "Assigned",
                 statusColor = MaterialTheme.colorScheme.tertiary
             )
+        }
+    }
+}
+
+@Composable
+fun AdminComplaintCard(
+    complaintId: String,
+    poleId: String,
+    issueType: String,
+    citizenName: String,
+    status: String,
+    statusColor: Color
+) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(12.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
+    ) {
+        Column(modifier = Modifier.padding(12.dp)) {
+            Text(text = "Pole ID: ${poleId.removePrefix("Pole-")}", fontWeight = FontWeight.Bold)
+            Text(text = issueType, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            Spacer(modifier = Modifier.height(6.dp))
+            Text(text = "Citizen: $citizenName", color = MaterialTheme.colorScheme.onSurfaceVariant)
+            Text(text = "Complaint: $complaintId", color = MaterialTheme.colorScheme.onSurfaceVariant)
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(text = status.uppercase(), color = statusColor, fontWeight = FontWeight.Bold)
         }
     }
 }

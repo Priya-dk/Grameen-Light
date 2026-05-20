@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VillageLight Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .soft-shadow {
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9f9f9;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed-dim": "#ffb2b7",
+                      "surface-container-high": "#e8e8e8",
+                      "on-primary": "#ffffff",
+                      "tertiary-fixed": "#ffdadb",
+                      "on-secondary-fixed": "#171e00",
+                      "surface-dim": "#dadada",
+                      "on-secondary": "#ffffff",
+                      "tertiary": "#bc0b3b",
+                      "outline": "#6c7a71",
+                      "error": "#ba1a1a",
+                      "primary": "#006c49",
+                      "on-tertiary-fixed-variant": "#92002a",
+                      "on-tertiary-fixed": "#40000d",
+                      "surface-container": "#eeeeee",
+                      "background": "#f9f9f9",
+                      "surface-container-low": "#f3f3f3",
+                      "tertiary-container": "#ff7886",
+                      "on-tertiary": "#ffffff",
+                      "inverse-surface": "#303030",
+                      "outline-variant": "#bbcabf",
+                      "on-tertiary-container": "#780021",
+                      "on-secondary-container": "#5c6834",
+                      "error-container": "#ffdad6",
+                      "secondary-fixed-dim": "#bfcd8f",
+                      "on-error-container": "#93000a",
+                      "secondary-fixed": "#dbe9a9",
+                      "on-secondary-fixed-variant": "#404b1b",
+                      "secondary": "#586330",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-fixed": "#002113",
+                      "surface-bright": "#f9f9f9",
+                      "on-background": "#1b1b1b",
+                      "inverse-primary": "#4edea3",
+                      "surface-tint": "#006c49",
+                      "primary-container": "#10b981",
+                      "secondary-container": "#d8e6a6",
+                      "surface-variant": "#e2e2e2",
+                      "primary-fixed": "#6ffbbe",
+                      "on-primary-container": "#00422b",
+                      "on-error": "#ffffff",
+                      "primary-fixed-dim": "#4edea3",
+                      "on-surface-variant": "#3c4a42",
+                      "on-primary-fixed-variant": "#005236",
+                      "surface": "#f9f9f9",
+                      "surface-container-highest": "#e2e2e2",
+                      "inverse-on-surface": "#f1f1f1",
+                      "on-surface": "#1b1b1b"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xs": "4px",
+                      "base": "8px",
+                      "gutter": "16px",
+                      "container-padding": "24px",
+                      "xl": "64px",
+                      "lg": "40px",
+                      "sm": "12px",
+                      "md": "24px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-sm": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "headline-xl": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "label-lg": ["Inter"],
+                      "body-md": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "label-lg": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background pb-24">
+<!-- Top Bar Component -->
+<header class="fixed top-0 w-full z-50 bg-surface shadow-sm border-b border-outline-variant flex items-center justify-between px-gutter h-16">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-headline-md" data-icon="electric_bolt">electric_bolt</span>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">VillageLight Admin</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant p-2 hover:bg-surface-container-high rounded-full transition-colors active:scale-95 duration-150" data-icon="notifications">notifications</button>
+<div class="w-8 h-8 rounded-full bg-secondary-container overflow-hidden border border-outline-variant">
+<img alt="Admin Profile" data-alt="A professional headshot of a technical administrator for a smart city utility company. The person is wearing a clean, modern olive-green uniform polo with a subtle tech-inspired logo. They have a confident, helpful expression. The background is a brightly lit, high-tech control center with soft-focus digital displays showing green and white data visualizations." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwZlYuZddo-ftPK9Cc0Liet8vZIJ3m1X5KaYBU7lx-ftpFXHUbMedfldVB1ufczMyBghf6PezXBu6Tf-owSebKyN6CrmOui7orVzQSsoPnBSoS7nD-g7J_0gIAow1M5YTaIp-FUiNmSUPsQpx4HCOHerFshTLHGT3nE4umR60622tzw81mJey-Wdx6bMY6PFMGXs4t9eGZkG1WJMvEvx5mdaBMvClgkBLegoGJ77AZTxL8MEtdNFbyGMyw1RRaYcVZPuPOxgaMYII"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pt-20 px-gutter max-w-7xl mx-auto space-y-md">
+<!-- Analytics Overview -->
+<section class="mt-4">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-background mb-gutter">Analytics Overview</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<!-- Total Complaints -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-md soft-shadow">
+<div class="flex justify-between items-start mb-2">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="schedule">schedule</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Total Complaints</p>
+<p class="font-headline-md text-headline-md font-bold mt-1">42</p>
+</div>
+<!-- Pending Repairs -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-md soft-shadow">
+<div class="flex justify-between items-start mb-2">
+<span class="material-symbols-outlined text-secondary" data-icon="build">build</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Pending Repairs</p>
+<p class="font-headline-md text-headline-md font-bold mt-1">12</p>
+</div>
+<!-- Fixed Lights -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-md soft-shadow">
+<div class="flex justify-between items-start mb-2">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Fixed Lights</p>
+<p class="font-headline-md text-headline-md font-bold mt-1">156</p>
+</div>
+<!-- Energy Saved -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-md soft-shadow">
+<div class="flex justify-between items-start mb-2">
+<span class="material-symbols-outlined text-tertiary" data-icon="bolt">bolt</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Energy Saved (kWh)</p>
+<p class="font-headline-md text-headline-md font-bold mt-1">1,204</p>
+</div>
+</div>
+</section>
+<!-- Recent Alerts -->
+<section class="space-y-gutter">
+<div class="flex justify-between items-end">
+<h2 class="font-headline-sm text-headline-sm text-on-background">Recent Alerts</h2>
+<a class="font-label-lg text-label-lg text-primary hover:underline" href="#">View All</a>
+</div>
+<!-- Alert Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant border-l-4 border-l-tertiary rounded-lg p-gutter soft-shadow flex flex-col md:flex-row md:items-center justify-between gap-md transition-transform hover:scale-[1.01]">
+<div class="flex items-start gap-gutter">
+<div class="p-2 bg-tertiary-fixed rounded-full">
+<span class="material-symbols-outlined text-tertiary" data-icon="warning">warning</span>
+</div>
+<div>
+<div class="flex items-center gap-gutter mb-1">
+<span class="font-body-md font-bold">Pole ID: VL-4029</span>
+<span class="bg-tertiary-fixed-dim text-on-tertiary-container font-label-sm text-label-sm px-3 py-1 rounded-full uppercase">Fused Light</span>
+</div>
+<p class="font-body-md text-on-surface-variant">Maple Avenue, Sector 4 Near Community Hall</p>
+</div>
+</div>
+<div class="flex gap-sm">
+<button class="flex-1 md:flex-none flex items-center justify-center gap-2 bg-primary text-on-primary px-gutter py-2 rounded-lg font-label-lg hover:brightness-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="near_me">near_me</span>
+                        Navigate
+                    </button>
+<button class="flex-1 md:flex-none flex items-center justify-center gap-2 border-2 border-on-background text-on-background px-gutter py-2 rounded-lg font-label-lg hover:bg-surface-container-high active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="assignment">assignment</span>
+                        Dispatch
+                    </button>
+</div>
+</div>
+<!-- Alert Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant border-l-4 border-l-tertiary rounded-lg p-gutter soft-shadow flex flex-col md:flex-row md:items-center justify-between gap-md transition-transform hover:scale-[1.01]">
+<div class="flex items-start gap-gutter">
+<div class="p-2 bg-tertiary-fixed rounded-full">
+<span class="material-symbols-outlined text-tertiary" data-icon="bolt">bolt</span>
+</div>
+<div>
+<div class="flex items-center gap-gutter mb-1">
+<span class="font-body-md font-bold">Pole ID: VL-8812</span>
+<span class="bg-tertiary-fixed-dim text-on-tertiary-container font-label-sm text-label-sm px-3 py-1 rounded-full uppercase">Fused Light</span>
+</div>
+<p class="font-body-md text-on-surface-variant">Oak Street, Behind Primary School No. 2</p>
+</div>
+</div>
+<div class="flex gap-sm">
+<button class="flex-1 md:flex-none flex items-center justify-center gap-2 bg-primary text-on-primary px-gutter py-2 rounded-lg font-label-lg hover:brightness-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="near_me">near_me</span>
+                        Navigate
+                    </button>
+<button class="flex-1 md:flex-none flex items-center justify-center gap-2 border-2 border-on-background text-on-background px-gutter py-2 rounded-lg font-label-lg hover:bg-surface-container-high active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="assignment">assignment</span>
+                        Dispatch
+                    </button>
+</div>
+</div>
+</section>
+<!-- Map Section -->
+<section class="space-y-gutter">
+<h2 class="font-headline-sm text-headline-sm text-on-background">Geographic Status</h2>
+<div class="relative w-full h-[400px] rounded-xl overflow-hidden soft-shadow border border-outline-variant">
+<img class="w-full h-full object-cover grayscale brightness-50" data-alt="A dark, high-contrast satellite view of a rural village landscape at night. The main arterial roads are highlighted with glowing golden digital strokes, representing the electrical infrastructure nodes. Small green pulses are scattered throughout the map to indicate active light poles, while a single pulsing red icon marks an alert location in a residential block. The style is clean, modern, and data-driven with a minimalist UI overlay." data-location="Rural Village Grid" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfHf1iOC69qcMDZb_WrF6j9Rp8gbaO_KcgFEiv47hUgWn0hbK8EcmFAhZ4_KL876IX99gUALlrCrFYpayCGjR3NiiBnXEB5bP1ZB-IdHcfPOAZoXFb6Z9eVOsiClj3l85dmNhhgIHXcADcvyEHk14FoSb1dybnq71JW3SSs4ZnO3h1hrp6c680jkiGOcL0i8eJk00CT3VcE4xoVIdIJZ7lc4LGFEHg1IeMUnd7Ly_XzHqIYH04xiy-EtQWjTVSRxAhqmozUaa-T50"/>
+<!-- Map Overlay Elements -->
+<div class="absolute inset-0 pointer-events-none">
+<div class="absolute top-gutter left-gutter bg-surface/90 backdrop-blur-md p-gutter rounded-lg border border-outline-variant">
+<p class="font-label-lg text-label-lg mb-1">Infrastructure Load</p>
+<div class="flex items-center gap-2">
+<div class="w-32 h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[65%]"></div>
+</div>
+<span class="font-label-sm text-label-sm font-bold">65%</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Nav Component -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface border-t border-outline-variant shadow-lg flex justify-around items-center h-20 px-2">
+<!-- Dashboard (Active) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-sm text-label-sm">Dashboard</span>
+</a>
+<!-- Map -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-secondary-container transition-all p-2 rounded-xl active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="font-label-sm text-label-sm">Map</span>
+</a>
+<!-- Alerts -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-secondary-container transition-all p-2 rounded-xl active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="font-label-sm text-label-sm">Alerts</span>
+</a>
+<!-- Settings -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-secondary-container transition-all p-2 rounded-xl active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const icon = this.querySelector('.material-symbols-outlined');
+                if (icon) {
+                    icon.classList.add('scale-125');
+                    setTimeout(() => icon.classList.remove('scale-125'), 200);
+                }
+            });
+        });
+
+        // Atmospheric effect: Pulse red dots for alerts on the map
+        function createPulse() {
+            const mapSection = document.querySelector('.relative.w-full.h-\\[400px\\]');
+            const pulse = document.createElement('div');
+            pulse.className = 'absolute w-4 h-4 bg-tertiary rounded-full animate-ping opacity-75 pointer-events-none';
+            pulse.style.left = '45%';
+            pulse.style.top = '30%';
+            mapSection.appendChild(pulse);
+            
+            const dot = document.createElement('div');
+            dot.className = 'absolute w-3 h-3 bg-tertiary rounded-full shadow-lg border-2 border-white pointer-events-none';
+            dot.style.left = '45.1%';
+            dot.style.top = '30.1%';
+            mapSection.appendChild(dot);
+        }
+        
+        window.onload = createPulse;
+    </script>
+</body></html>

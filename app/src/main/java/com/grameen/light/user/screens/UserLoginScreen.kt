@@ -190,13 +190,56 @@ fun UserLoginScreen(navController: NavController) {
                     errorMessage = "Please enter email and password"
                     return@Button
                 }
+
+                val trimmedEmail = email.trim()
+                val trimmedPassword = password.trim()
+                val adminEmail = "admin@grameenlight.com"
+                val adminPassword = "admin123"
+                val normalizedEmail = trimmedEmail.lowercase().replace(".con", ".com")
+
+                if (normalizedEmail == adminEmail) {
+                    if (trimmedPassword == adminPassword) {
+                        isLoading = true
+                        // Ensure Firebase auth session so Firestore works for admin
+                        auth.signInWithEmailAndPassword(adminEmail, adminPassword)
+                            .addOnCompleteListener { signInTask ->
+                                if (signInTask.isSuccessful) {
+                                    isLoading = false
+                                    navController.navigate("grameen_light_admin_dashboard") {
+                                        popUpTo("user_login") { inclusive = true }
+                                    }
+                                } else {
+                                    // Create admin account in Firebase if it doesn't exist
+                                    auth.createUserWithEmailAndPassword(adminEmail, adminPassword)
+                                        .addOnCompleteListener { createTask ->
+                                            isLoading = false
+                                            if (createTask.isSuccessful) {
+                                                navController.navigate("grameen_light_admin_dashboard") {
+                                                    popUpTo("user_login") { inclusive = true }
+                                                }
+                                            } else {
+                                                errorMessage = "Admin login failed: ${createTask.exception?.message}"
+                                            }
+                                        }
+                                }
+                            }
+                    } else {
+                        errorMessage = "Incorrect admin password. Use admin123"
+                    }
+                    return@Button
+                }
+
+                if (trimmedEmail.lowercase().startsWith("admin@grameenlight")) {
+                    errorMessage = "Use admin email: admin@grameenlight.com"
+                    return@Button
+                }
                 
                 isLoading = true
-                auth.signInWithEmailAndPassword(email, password)
+                auth.signInWithEmailAndPassword(trimmedEmail, trimmedPassword)
                     .addOnCompleteListener { task ->
                         isLoading = false
                         if (task.isSuccessful) {
-                            navController.navigate("user_home") {
+                            navController.navigate("grameen_light_user_dashboard") {
                                 popUpTo("user_login") { inclusive = true }
                             }
                         } else {
