@@ -260,10 +260,10 @@ The app includes mock data for testing:
 - Update Android Gradle Plugin if needed
 - Clean and rebuild: `./gradlew clean build`
 
-## �‍💻 Author
+👩‍💻 Author
+Priya ✨
 
-**Priya**
-
-Developed with care for rural street light management.
+Built with passion ❤️ to empower smarter rural street light management 🌍💡
+Driving innovation for safer villages, sustainable energy ⚡, and brighter communities 🌱🏘️
 
 
